@@ -19,6 +19,7 @@ namespace Calculator
             {
                 int res;
                 int num1;
+                // input validation
                 while (true) {                     
                     Console.Write("Enter first number:");
                     string input = Console.ReadLine();
@@ -33,6 +34,7 @@ namespace Calculator
                 }
 
                 int num2;
+                // input validation
                 while (true)
                 {
                     Console.Write("Enter second number:");
@@ -70,6 +72,12 @@ namespace Calculator
                         Console.WriteLine(num1 + "x" + num2 + "= " + res);
                         break;
                     case "/":
+                        // check if the second number is zero
+                        if (num2 == 0)
+                        {
+                            Console.WriteLine("Cannot divide by zero");
+                            break;
+                        }
                         res = num1 / num2;
                         Console.WriteLine("Division:");
                         Console.WriteLine(num1 + "/" + num2 + "= " + res);
@@ -78,8 +86,8 @@ namespace Calculator
                         Console.WriteLine("Wrong input");
                         break;
                 }
-                Console.ReadLine();
-                Console.Write("Do you want to continue(y/n):");
+
+                Console.Write("Do you want to continue(y/n): ");
                 value = Console.ReadLine();
             }
             while (value == "y" || value == "Y");
